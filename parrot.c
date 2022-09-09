@@ -140,7 +140,8 @@ int	main(int argc, char **argv, char **env)
 	while (i <= 9)
 	{
 		frames[i] = malloc(1000 * sizeof(char));
-		fd = open(ft_strjoin(pwd, ft_strjoin("/frames/", ft_strjoin(ft_itoa(i),".txt"))), O_RDONLY, 0777);
+		// fd = open(ft_strjoin(pwd, ft_strjoin("/frames/", ft_strjoin(ft_itoa(i),".txt"))), O_RDONLY, 0777);
+		fd = open(ft_strjoin("frames/", ft_strjoin(ft_itoa(i),".txt")), O_RDONLY, 0777);
 		read(fd, frames[i], 1000);
 		i++;
 	}
