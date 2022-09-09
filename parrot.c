@@ -134,11 +134,13 @@ int	main(int argc, char **argv, char **env)
 	int colors[6] = {31,33,32,36,34,35};
 	char *pwd;
 
+
 	pwd = ft_arraysrch(env, "PWD=") + 4;
+	printf("pwd= %s\n", pwd);
 	while (i <= 9)
 	{
 		frames[i] = malloc(1000 * sizeof(char));
-		fd = open(ft_strjoin(ft_strjoin(ft_strjoin("/Users/", user), "/Fadaise/frames/"),ft_strjoin(ft_itoa(i),".txt")), O_RDONLY, 0777);
+		fd = open(ft_strjoin(pwd, ft_strjoin("/frames/", ft_strjoin(ft_itoa(i),".txt"))), O_RDONLY, 0777);
 		read(fd, frames[i], 1000);
 		i++;
 	}

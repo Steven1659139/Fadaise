@@ -9,7 +9,12 @@ parrot:
 rev:
 	@rev
 
+fish:
+	@./asciiquarium
 diy_parrot:
 	open -a iTerm -- 'parrot'
-	sleep(1);
-#	$(MAKE) diy_parrot
+	sleep 10;
+	# $(MAKE) diy_parrot
+
+gcc_parrot:
+	gcc parrot.c -o parrot
