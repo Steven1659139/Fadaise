@@ -8,3 +8,6 @@ parrot:
 
 rev:
 	@rev
+
+fish:
+	@./asciiquarium

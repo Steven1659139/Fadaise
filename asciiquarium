@@ -1,0 +1,2 @@
+#!/bin/bash
+PERL5LIB="/Users/$USER/sgoinfre/Perso/slavoie/asciiquarium/1.1_3/libexec/lib/perl5" exec "/Users/$USER/sgoinfre/Perso/slavoie/asciiquarium/1.1_3/libexec/bin/asciiquarium"  "$@"
