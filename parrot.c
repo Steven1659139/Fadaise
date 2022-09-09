@@ -132,9 +132,9 @@ int	main(int argc, char **argv, char **env)
 	int j = 0;
 	char *frames[10];
 	int colors[6] = {31,33,32,36,34,35};
-	char *user;
+	char *pwd;
 
-	user = ft_arraysrch(env, "USER=") + 5;
+	pwd = ft_arraysrch(env, "PWD=") + 4;
 	while (i <= 9)
 	{
 		frames[i] = malloc(1000 * sizeof(char));
