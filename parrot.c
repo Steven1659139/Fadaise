@@ -136,7 +136,7 @@ int	main(int argc, char **argv, char **env)
 
 
 	pwd = ft_arraysrch(env, "PWD=") + 4;
-	printf("pwd= %s\n", pwd);
+	// printf("pwd= %s\n", pwd);
 	while (i <= 9)
 	{
 		frames[i] = malloc(1000 * sizeof(char));
