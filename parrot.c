@@ -6,6 +6,8 @@
 
 #define update() printf("\33[H\33[J")
 
+int timer = 70000;
+
 static int	ft_len(int n)
 {
 	int	len;
@@ -122,6 +124,22 @@ char	*ft_arraysrch(char **tab, char *str_to_find)
 	return ("");
 }
 
+void	handler(int sig) 
+{
+	if (sig == SIGINT)
+	{
+		printf("lol\n");
+		if(timer - 1000 > 10000)
+			timer -= 1000;
+
+	}
+	if (sig == SIGABRT)
+	{
+		printf("lol\n");
+		timer += 10000;
+	}
+	
+}
 
 int	main(int argc, char **argv, char **env)
 {
@@ -136,25 +154,34 @@ int	main(int argc, char **argv, char **env)
 
 
 	pwd = ft_arraysrch(env, "PWD=") + 4;
-	// printf("pwd= %s\n", pwd);
 	while (i <= 9)
 	{
 		frames[i] = malloc(1000 * sizeof(char));
-		// fd = open(ft_strjoin(pwd, ft_strjoin("/frames/", ft_strjoin(ft_itoa(i),".txt"))), O_RDONLY, 0777);
-		fd = open(ft_strjoin("frames/", ft_strjoin(ft_itoa(i),".txt")), O_RDONLY, 0777);
+		fd = open(ft_strjoin(pwd, ft_strjoin("/frames/", ft_strjoin(ft_itoa(i),".txt"))), O_RDONLY, 0777);
+		// fd = open(ft_strjoin("./frames/", ft_strjoin(ft_itoa(i),".txt")), O_RDONLY, 0777);
 		read(fd, frames[i], 1000);
 		i++;
 	}
 	i = 0;
 	while(1)
 	{
-		usleep(80000);
+		signal(SIGINT, handler);
+		signal(SIGQUIT, handler);
+		signal(SIGABRT, handler);
+		signal(SIGTSTP, handler);
+		usleep(timer);
 		update();
+
+		// printf("pwd= %d\n", i);
 		printf("\033[%dm%s\033[0m",colors[j], frames[i]);
+		
+
+
+
 		if(i == 9)
 			i = 0;
 		if(j == 7)
-			j = 0;
+			j = 1;
 		i++;
 		j++;
 	}

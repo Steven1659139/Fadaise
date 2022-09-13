@@ -13,7 +13,7 @@ fish:
 	@./asciiquarium
 diy_parrot: gcc_parrot
 	open -a iTerm -- 'parrot'
-	sleep 10;
+	# sleep 10;
 	# $(MAKE) diy_parrot
 
 gcc_parrot:
